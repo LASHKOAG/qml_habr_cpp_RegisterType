@@ -44,6 +44,9 @@ Window {
                 anchors.fill: parent
                 onClicked: {
                     myObj.mySlot();
+                    _myClass.buttonClicked("Hello: " + myObj.someProperty)
+                    var res = _myClass.someMethod()
+                    console.log("res: " + res)
                 }
             }
         }
