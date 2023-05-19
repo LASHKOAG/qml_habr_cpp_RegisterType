@@ -29,6 +29,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <myfile.h>
 
 class TestClass : public QObject
 {
@@ -36,14 +37,23 @@ class TestClass : public QObject
     Q_PROPERTY(int someProperty READ getSomeProperty WRITE setSomeProperty NOTIFY somePropertyChanged)
 public:
     explicit TestClass(QObject *parent = nullptr);
+    ~TestClass();
 
     int getSomeProperty() const;
     void setSomeProperty(const int &);
 
     Q_INVOKABLE void myMethod();
 
+
+    //-------------------------
+    Q_INVOKABLE int write_data();
+    Q_INVOKABLE int write_data(QString data);
+
 private:
     int someProperty;
+
+    //-------------------------
+    MyFile* m_file;
 
 signals:
     void somePropertyChanged();

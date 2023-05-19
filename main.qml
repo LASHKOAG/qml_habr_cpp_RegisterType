@@ -69,6 +69,8 @@ Window {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    myObj.write_data()
+                    myObj.write_data("test_words")
                     Qt.quit();
                 }
             }

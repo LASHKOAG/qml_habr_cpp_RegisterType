@@ -2,7 +2,14 @@
 
 TestClass::TestClass(QObject *parent) : QObject(parent)
 {
+    m_file = new MyFile("./test.txt");
+}
 
+TestClass::~TestClass()
+{
+    if(m_file != nullptr){
+        delete m_file;
+    }
 }
 
 int TestClass::getSomeProperty() const
@@ -22,6 +29,18 @@ void TestClass::myMethod()
     qDebug() << "I am Method";
     someProperty++;
     emit somePropertyChanged();
+}
+
+int TestClass::write_data()
+{
+    m_file->write_file_mf();
+    return 0;
+}
+
+int TestClass::write_data(QString data)
+{
+    m_file->write_file_mf(data);
+    return 0;
 }
 
 void TestClass::mySlot()
