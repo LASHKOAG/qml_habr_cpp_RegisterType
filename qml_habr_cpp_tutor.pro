@@ -9,7 +9,9 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         myclass.cpp \
-        testclass.cpp
+        secondclass.cpp \
+        testclass.cpp \
+        wwww.cpp
 
 RESOURCES += qml.qrc
 
@@ -26,4 +28,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     myclass.h \
-    testclass.h
+    secondclass.h \
+    testclass.h \
+    wwww.h
