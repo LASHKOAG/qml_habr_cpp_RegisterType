@@ -3,7 +3,7 @@
 #include <testclass.h>
 #include <myclass.h>
 #include <QQmlContext>
-
+#include "secondclass.h"
 
 
 int main(int argc, char *argv[])
@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     qmlRegisterType<TestClass>("ModuleName", 1, 0, "TypeName");
+    qmlRegisterType<SecondClass>("ModuleNameSecond", 1, 0, "SecondClass");
 
     MyClass myClass;
 

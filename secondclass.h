@@ -11,7 +11,7 @@ class SecondClass : public QObject
 public:
     explicit SecondClass(QObject *parent = nullptr);
 
-    int getFirstProperty() const;
+    Q_INVOKABLE int getFirstProperty() const;
     void setFirstProperty(int newFirstProperty);
 
 private:

@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Window 2.12
 
 import ModuleName 1.0
+import ModuleNameSecond 1.0
 
 //https://habr.com/ru/articles/140899/
 
@@ -23,6 +24,7 @@ Window {
             onSomePropertyChanged: {
                 console.log("onSomePropertyChanged")
             }
+            Component.onCompleted: _myClass.var_myClass = 50
         }
         Text {
             id: txt_property
@@ -47,6 +49,8 @@ Window {
                     _myClass.buttonClicked("Hello: " + myObj.someProperty)
                     var res = _myClass.someMethod()
                     console.log("res: " + res)
+
+                    _myClass.print_vars();
                 }
             }
         }
@@ -66,7 +70,7 @@ Window {
             id:big_rec
             width: 400
             height: 250
-            color: "red"
+            color: "grey"
             visible: false
             anchors.centerIn: parent
             MouseArea {
@@ -74,6 +78,33 @@ Window {
                 onClicked: {
                     Qt.quit();
                 }
+            }
+        }
+    }
+
+    Rectangle{
+        anchors.right: parent.right
+        width: 20
+        height: 20
+        color: "green"
+        SecondClass{
+            id: sc
+            firstProperty: 500
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("------------------------ ")
+                console.log("SecondClass sc, firstProperty: " + sc.firstProperty)
+                sc.firstProperty = 12
+                console.log("SecondClass sc, firstProperty: " + sc.firstProperty)
+                sc.getFirstProperty()
+                console.log("SecondClass sc, firstProperty: " + sc.getFirstProperty())
+                console.log("------------------------ ")
+                _myClass.var_myClass += 1
+                _myClass.print_vars();
+                console.log("------------------------ ")
+
             }
         }
     }

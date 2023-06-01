@@ -10,8 +10,7 @@ SOURCES += \
         main.cpp \
         myclass.cpp \
         secondclass.cpp \
-        testclass.cpp \
-        wwww.cpp
+        testclass.cpp
 
 RESOURCES += qml.qrc
 
@@ -29,5 +28,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     myclass.h \
     secondclass.h \
-    testclass.h \
-    wwww.h
+    testclass.h
