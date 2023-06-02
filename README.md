@@ -19,20 +19,28 @@ In qml itself, this object is visible to everyone. That is, any object created i
 
 
 ==========================================================================================
-MyClass. Создаем переменную var_myClass.
+//test objectName: "obj_rec_test"
 
-MyClass добавлене через engine.rootContext()->setContextProperty("_myClass", &myClass);
+в main.qml
 
-Проверим что переменную var_myClass можно менять из разных объектов qmlи это не копии var_myClass:
+    Rectangle{
+    
+        id: rec_test
+        
+        objectName: "obj_rec_test"
+        
+в main.cpp
 
-TypeName - установим var_myClass = 50
+//test working success
+    
+    //https://doc.qt.io/qt-6/qml-qtqml-qtobject.html
+    
+    QObject* obj = engine.rootObjects().at(0);
+       
+       if (obj != nullptr){
+           
+           QObject* objt = obj->findChild<QObject*>("obj_rec_test");
+           
+           objt->setProperty("width", 200);
 
-Component.onCompleted: _myClass.var_myClass = 50
-
-
-
-Rectangle - color: "green"
-
-_myClass.var_myClass += 1
-
-Происходит изменение, всё работает.
+       }

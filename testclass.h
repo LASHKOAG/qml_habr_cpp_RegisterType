@@ -42,6 +42,8 @@ public:
 
     Q_INVOKABLE void myMethod();
 
+    void set_obj(QObject* objt);
+
 private:
     int someProperty;
 
@@ -51,6 +53,7 @@ signals:
 
 public slots:
     void mySlot();
+    void test_obj_Slot();
 
 };
 

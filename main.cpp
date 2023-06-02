@@ -31,7 +31,14 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     engine.load(url);
 
+    //test working success
+    //https://doc.qt.io/qt-6/qml-qtqml-qtobject.html
+    QObject* obj = engine.rootObjects().at(0);
+       if (obj != nullptr){
+           QObject* objt = obj->findChild<QObject*>("obj_rec_test");
+           objt->setProperty("width", 200);
 
+       }
 
 
     return app.exec();

@@ -104,6 +104,26 @@ Window {
                 _myClass.var_myClass += 1
                 _myClass.print_vars();
                 console.log("------------------------ ")
+            }
+        }
+    }
+
+    //test objectName: "obj_rec_test"
+    Rectangle{
+        id: rec_test
+        objectName: "obj_rec_test"
+        property int val_01: 1111
+        width: 20
+        height: 20
+        color: "orange"
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                console.log("-------- obj_rec_test ---------- ")
+                myObj.test_obj_Slot()
 
             }
         }
